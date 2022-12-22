@@ -9,3 +9,7 @@
 ## Jestの導入
 
 `yarn add -D jest @testing-library/react @testing-library/jest-dom jest-environment-jsdom`
+
+## Axiosの導入
+
+`yarn add axios @types/axios`
