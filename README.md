@@ -17,3 +17,7 @@
 ## SWRの導入
 
 `yarn add swr`
+
+## Highchartsの導入
+
+`yarn add highcharts highcharts-react-official`
