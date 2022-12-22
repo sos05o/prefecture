@@ -40,7 +40,7 @@ export const GetPrefectureFunctions = () => {
     ...defaultGetConfig,
     url: 'api/v1/prefectures',
   }
-  const { data, isLoading } = useSWR(
+  const { data, isLoading } = useSWR<GetPrefectureResponse | undefined>(
     'api/v1/prefecture',
     () =>
       axios<GetPrefectureResponse>(config).then((res) => {
