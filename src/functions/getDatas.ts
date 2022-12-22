@@ -66,12 +66,12 @@ export const GetPopulationFunction = (prefCode: number) => {
       cityCode: '-',
     },
   }
-  const data = axios<GetPopulationResponse>(config).then(res => {
+  const data = axios<GetPopulationResponse>(config).then((res) => {
     if (res.status === 200) return res.data
   })
 
   return {
     population: data,
-    isLoading: false
+    isLoading: false,
   }
 }
