@@ -44,7 +44,6 @@ export const GetPrefectureFunctions = () => {
     'api/v1/prefecture',
     () =>
       axios<GetPrefectureResponse>(config).then((res) => {
-        console.log('fetched.')
         if (res.status === 200) return res.data
       }),
     CustomSWRConfig,
@@ -67,7 +66,7 @@ export const GetPopulationFunction = (prefCode: number) => {
       cityCode: '-',
     },
   }
-  const { data, isLoading } = useSWR(
+  const { data, isLoading } = useSWR<GetPopulationResponse | undefined>(
     ['api/v1/population/composition/perYear', prefCode],
     () =>
       axios<GetPopulationResponse>(config).then((res) => {
