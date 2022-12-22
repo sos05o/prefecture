@@ -9,7 +9,7 @@
     "test": "jest --watch",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --fix",
-    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,json} --ignore-path .gitignore"
   },
   "dependencies": {
     "@next/font": "13.0.7",
@@ -23,6 +23,7 @@
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "swr": "^2.0.0",
     "typescript": "4.9.4"
   },
   "devDependencies": {

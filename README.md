@@ -13,3 +13,7 @@
 ## Axiosの導入
 
 `yarn add axios @types/axios`
+
+## SWRの導入
+
+`yarn add swr`
