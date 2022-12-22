@@ -21,3 +21,7 @@
 ## Highchartsの導入
 
 `yarn add highcharts highcharts-react-official`
+
+## ホスティングサービスへのデプロイ
+
+[Vercel](https://prefecture-git-main-sos05o.vercel.app/)
