@@ -17,10 +17,10 @@ const defaultGetConfig: AxiosRequestConfig = {
 const CustomSWRConfig: SWRConfiguration = {
   revalidateIfStale: false,
   revalidateOnFocus: false,
-  revalidateOnMount: false,
+  // revalidateOnMount: false,
   revalidateOnReconnect: false,
   shouldRetryOnError: false,
-  focusThrottleInterval: 3600,
+  focusThrottleInterval: 360,
 }
 
 type GetPrefectureResponse = {
@@ -66,16 +66,12 @@ export const GetPopulationFunction = (prefCode: number) => {
       cityCode: '-',
     },
   }
-  const { data, isLoading } = useSWR<GetPopulationResponse | undefined>(
-    ['api/v1/population/composition/perYear', prefCode],
-    () =>
-      axios<GetPopulationResponse>(config).then((res) => {
-        if (res.status === 200) return res.data
-      }),
-    CustomSWRConfig,
-  )
+  const data = axios<GetPopulationResponse>(config).then(res => {
+    if (res.status === 200) return res.data
+  })
+
   return {
     population: data,
-    isLoading,
+    isLoading: false
   }
 }
