@@ -1,0 +1,54 @@
+.wrapper {
+  --checkboxes-col-size: 2;
+  --checkbox-bg-color: rgb(7, 7, 7);
+  --checkbox-font-color: rgba(255, 255, 255, 0.8);
+  --checkbox-border: solid 3px rgb(225, 118, 90);
+  --checkbox-checked-bg-color: rgb(225, 118, 90);
+  @media screen and (device-width >= 1349px) {
+    --checkboxes-col-size: 3;
+  }
+  @media screen and (1349px > device-width >= 892px) {
+    --checkboxes-col-size: 2;
+  }
+  @media screen and (892px >= device-width >= 568px) {
+    --checkboxes-col-size: 1;
+  }
+}
+
+.wrapper {
+  max-height: 100%;
+  padding: clamp(20px, calc(4% + 20px), 8%) clamp(8px, calc(2% + 10px), 4%);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  column-gap: 10px;
+  justify-content: start;
+  align-items: start;
+  overflow-y: scroll;
+}
+
+.checkbox {
+  width: calc(calc(100% - calc(10px * calc(var(--checkboxes-col-size) - 1))) / var(--checkboxes-col-size));
+  padding: 8px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--checkbox-bg-color);
+  border: var(--checkbox-border);
+  border-radius: 8px;
+  transition: .24s ease-in;
+}
+
+.icon_area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 1.5rem;
+  transition: .5s;
+}
+
+.checked {
+  background-color: var(--checkbox-checked-bg-color);
+}

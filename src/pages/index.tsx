@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Graph, { GraphProps } from '@/src/components/graph/Graph'
 import PrefectureCheckBoxes from '@/src/components/prefectureCheckBox/CheckBoxes'
 import { GetPopulationFunction, GetPrefectureFunctions } from '@/src/functions/getDatas'
+import style from '@/src/styles/index.module.scss'
 import { Prefecture } from '@/src/types/type'
 
 export interface checkListProps extends Prefecture {
@@ -69,10 +70,19 @@ const Index = () => {
   }, [checkList])
 
   return (
-    <>
-      <PrefectureCheckBoxes prefecture={checkList} handler={toggleCheckFlgHandler} />
-      <Graph data={dataList} />
-    </>
+    <div className={style.wrapper}>
+      <div className={style.title}>
+        <h1>Graph</h1>
+      </div>
+      <div className={style.graph}>
+        <Graph data={dataList} />
+        {/*サンプル1*/}
+      </div>
+      <div className={style.checkboxes}>
+        <PrefectureCheckBoxes prefecture={checkList} handler={toggleCheckFlgHandler} />
+        {/*サンプル2*/}
+      </div>
+    </div>
   )
 }
 
