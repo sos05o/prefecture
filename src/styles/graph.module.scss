@@ -1,0 +1,21 @@
+.wrapper {
+  --graph-bg-color: rgb(255, 255, 255);
+  @media (prefers-color-scheme: dark) {
+    --graph-bg-color: rgba(255, 255, 255, 0.88);
+  }
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sub_wrapper {
+  width: 100%;
+  height: clamp(60%, calc(50% + 10vh), 100%);
+  border-radius: 16px;
+  background-color: var(--graph-bg-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}

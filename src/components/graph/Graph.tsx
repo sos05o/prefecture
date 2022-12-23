@@ -1,6 +1,8 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import HighchartsExporting from 'highcharts/modules/exporting'
 import React from 'react'
+import style from '@/src/styles/graph.module.scss'
 import { Population, Prefecture } from '@/src/types/type'
 
 export interface GraphProps {
@@ -32,15 +34,30 @@ const Graph = ({ data }: GraphProps) => {
         pointStart: 1980,
       },
     },
+    chart: {
+      backgroundColor: undefined,
+    },
+    lang: {
+      // thousandsSep: ',',
+      numericSymbols: ['千', '百万', '十億', '兆', '千兆', '百京'],
+    },
+  }
+
+  if (typeof Highcharts === 'object') {
+    HighchartsExporting(Highcharts)
   }
 
   return (
-    <div>
-      <HighchartsReact
-        // key={data.map(pref => pref.prefName).join(",")}
-        highcharts={Highcharts}
-        options={options}
-      />
+    <div className={style.wrapper}>
+      <div className={style.sub_wrapper}>
+        <HighchartsReact
+          // key={data.map(pref => pref.prefName).join(",")}
+          highcharts={Highcharts}
+          options={options}
+          reflow={true}
+          containerProps={{ style: { width: '100%', height: '100%' } }}
+        />
+      </div>
     </div>
   )
 }
